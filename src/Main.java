@@ -1,25 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-        // Объявление переменных
+        // Начальная сумма на счету клиента
         int initialBalance = 100;
-        int rechargeAmount = 1100;
-        int bonus = 0;
-
-        // Объявление переменной для итогового счёта
-        int finalBalance;
-        // Проверка условным оператором не превысила ли сумма пополнения порог
-        if (rechargeAmount > 1000) {
-
-        // Рассчитываем бонус
-            bonus = (rechargeAmount / 100); }
-
+        // Сумма пополнения
+        int refillAmount = 300;
+        // Вычисление бонуса
+        int bonus = (refillAmount > 1000) ? refillAmount / 100 : 0;
         // Итоговый счет
-            finalBalance = initialBalance + rechargeAmount + bonus;
-
-            // Вывод результатов на экран
-            System.out.println("Сумма пополнения: " + rechargeAmount + " рублей");
+        int finalBalance = initialBalance + refillAmount + bonus;
+        System.out.println("Пополнение на сумму: " + refillAmount + " рублей.");
+        if (bonus > 0) {
             System.out.println("Бонусные рубли: " + bonus);
-            System.out.println("Итоговая сумма на счету: " + finalBalance + " рублей");
-
+        } else {
+            System.out.println("Бонусов нет, так как сумма пополнения менее 1000 рублей.");
+        }
+            System.out.println("Итоговая сумма на счету клиента: " + finalBalance);
         }
     }
